@@ -146,11 +146,14 @@ LRESULT Window::MessageHandler(HWND handle, UINT msgcode, WPARAM wparam, LPARAM 
 		 mouse.Reset();
 		 keyboard.Reset();
 		 break;
+	 case WM_HSCROLL:
+	 case WM_VSCROLL:
 	 case WM_COMMAND:
 	 {
 		 auto component = (WindowComponent*)GetWindowLongPtr(reinterpret_cast<HWND>(lparam), GWLP_USERDATA);
-		 component->PerformCommand(HIWORD(wparam));
+		 component->PerformCommand(wparam);
 	 }
+	 break;
 	}
 	return DefWindowProc(handle , msgcode , wparam , lparam);
 }

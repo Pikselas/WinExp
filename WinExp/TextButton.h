@@ -1,6 +1,5 @@
 #pragma once
 #include<string>
-#include<functional>
 #include"WindowComponent.h"
 
 class TextButton : public WindowComponent
@@ -18,13 +17,13 @@ public:
 	{
 		DestroyWindow(component_handle);
 	}
-	void PerformCommand(int hi_word) override
+	void PerformCommand(int wparam) override
 	{
-		if (hi_word == BN_CLICKED && OnClick != nullptr)
+		if (HIWORD(wparam) == BN_CLICKED && OnClick != nullptr)
 		{
 			OnClick(*this);
 		}
-		else if (hi_word == BN_DBLCLK && OnDblClick != nullptr)
+		else if (HIWORD(wparam) == BN_DBLCLK && OnDblClick != nullptr)
 		{
 			OnDblClick(*this);
 		}

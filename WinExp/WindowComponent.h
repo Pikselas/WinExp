@@ -1,6 +1,7 @@
 #pragma once
 #include<Windows.h>
 #include<CommCtrl.h>
+#include<functional>
 
 class WindowComponent
 {
@@ -9,7 +10,7 @@ protected:
 	HWND component_handle;
 protected:
 	WindowComponent() = default;
-	virtual void PerformCommand(int hi_word) = 0;
+	virtual void PerformCommand(int wparam) = 0;
 };
 
 template<typename T>
