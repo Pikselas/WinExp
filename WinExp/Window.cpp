@@ -151,7 +151,7 @@ LRESULT Window::MessageHandler(HWND handle, UINT msgcode, WPARAM wparam, LPARAM 
 	 case WM_COMMAND:
 	 {
 		 auto component = (WindowComponent*)GetWindowLongPtr(reinterpret_cast<HWND>(lparam), GWLP_USERDATA);
-		 component->PerformCommand(wparam);
+		 component->PerformCommand((int)wparam);
 	 }
 	 break;
 	}

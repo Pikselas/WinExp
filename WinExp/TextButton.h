@@ -9,10 +9,9 @@ public:
 	std::function<void(TextButton& button)> OnDblClick = nullptr;
 public:
 	TextButton(WindowT auto& parent_window, const std::string& Title, int pos_x, int pos_y, int width, int height)
-	{
-		component_handle = CreateWindowEx(0, "Button", Title.c_str(), WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON ,pos_x,pos_y,width,height, parent_window.window_handle, nullptr, GetModuleHandle(nullptr), nullptr);
-		SetWindowLongPtr(component_handle, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
-	}
+		:
+		WindowComponent(parent_window, "Button", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, Title.c_str(), pos_x, pos_y, width, height, this)
+	{}
 	~TextButton()
 	{
 		DestroyWindow(component_handle);

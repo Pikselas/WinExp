@@ -24,7 +24,7 @@ class Window
 	public:
 		class Mouse
 		{
-		friend class Window;
+		friend Window;
 		private:
 			int x = -1;
 			int y = -1;
@@ -50,7 +50,7 @@ class Window
 		};
 		class KeyBoard
 		{
-			friend class Window;
+			friend Window;
 		private:
 			std::bitset<256> KEY_STAT;
 			bool REPEAT_ENABLED = false;
