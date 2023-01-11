@@ -1,23 +1,18 @@
 #include "Window.h"
 #include"TextButton.h"
 #include"RangeButton.h"
+#include"TextEntry.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     LPSTR lpCmdLine, int nCmdShow)
 {
     Window wnd;
-	TextButton btn(wnd, "Button", 100, 100, 100, 100);
-	RangeButton btn2(wnd, 0,10, 100, 200, 100, 100);
-
-	btn.OnClick = [&](TextButton& b)
-		{
-		SetWindowText(wnd.window_handle, "Button Clicked");
-		};
-	btn2.OnSlide = [&](RangeButton& b)
+	RangeButton range_button(wnd, 0, 10, 100, 100, 100, 50);
+	TextEntry entry(wnd, 10, 10, 500, 50);
+	range_button.OnSlide = [&](RangeButton& button)
 	{
-		SetWindowText(wnd.window_handle, std::to_string(b.GetCurrentPos()).c_str());
+		entry.SetText(std::to_string(button.GetCurrentPos()));
 	};
-	
     while (wnd.IsOpen())
     {
 		wnd.ProcessEvents();

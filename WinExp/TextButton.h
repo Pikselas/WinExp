@@ -10,7 +10,7 @@ public:
 public:
 	TextButton(WindowT auto& parent_window, const std::string& Title, int pos_x, int pos_y, int width, int height)
 		:
-		WindowComponent(parent_window, "Button", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, Title.c_str(), pos_x, pos_y, width, height, this)
+		WindowComponent(parent_window, "Button", 0 , WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, Title.c_str(), pos_x, pos_y, width, height, this)
 	{}
 	~TextButton()
 	{
