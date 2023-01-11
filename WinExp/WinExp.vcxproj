@@ -135,6 +135,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Label.h" />
     <ClInclude Include="RangeButton.h" />
     <ClInclude Include="TextButton.h" />
     <ClInclude Include="TextEntry.h" />
